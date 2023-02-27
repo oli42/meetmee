@@ -1,5 +1,7 @@
 const express = require('express')
 let router = express.Router()
+const bcrypt = require('bcrypt')
+
 const User = require('../models/user.model')
 
 router.get('/', async (req, res)=> {
@@ -16,11 +18,15 @@ router.get('/:id', (req, res)=> {
 })
 
 router.post('/' , async (req, res)=> {
+
+    const salt = await bcrypt.genSalt();
+    const hashedPassword = await bcrypt.hash(req.body.password, salt);
+
     const user = new User({
         firstName: req.body.firstName,
         lastName: req.body.lastName,
         email: req.body.email,
-        password: req.body.password
+        password: hashedPassword 
     })
 
     try{
@@ -30,6 +36,8 @@ router.post('/' , async (req, res)=> {
         res.status(400).json({message: err.message})
     }
 })
+
+
 
 router.delete('/:id', getUser, async (req, res) => {
 try {
