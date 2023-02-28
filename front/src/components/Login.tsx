@@ -10,13 +10,13 @@ type FormValues = {
 };
 
 function Login() {
-  const { register, handleSubmit, getValues,  formState: { errors } } = useForm<FormValues>();
+  const { register, handleSubmit, getValues} = useForm<FormValues>();
   const [error, setError] = useState("");
   let navigation = useNavigate();
 
   async function handleClick(infos: FormValues){
 
-    let url: string = 'http://localhost:4000/users';
+    let url: string = '/api/login';
     const response = await fetch(url, { method: "POST",
     headers: {
     'Content-Type': 'application/json',
@@ -32,7 +32,7 @@ function Login() {
     return ;
   }
   else{
-    navigation('/');
+    navigation('/cookietester');
   }
 }
   
@@ -50,10 +50,6 @@ function Login() {
         <form onSubmit={handleSubmit(onSubmit)}>
           <input type="email" {...register("email", { required: true })} placeholder='email'/>
           <input type="password" {...register("password", { required: true })} placeholder='password'/>
-            {/* {errors?.password?.type === "required" && <p>All fields are required</p>}
-            {errors?.password?.type === "minLength" && (
-                <p>Password cannot be less than 8 characters</p>
-            )} */}
           <button type="submit">Submit</button>
           <p>{error}</p>
         </form>

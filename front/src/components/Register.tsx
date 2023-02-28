@@ -18,11 +18,11 @@ function Register() {
   const { register, watch, handleSubmit, getValues,  formState: { errors } } = useForm<FormValues>();
   let navigation = useNavigate();
   const [error, setError] = useState("");
-    const confirm = watch('password')
+  const confirm = watch('password')
 
   async function handleClick(infos: FormValues){
 
-    let url: string = 'http://localhost:4000/users';
+    let url: string = 'api/users';
     const response = await fetch(url, { method: "POST",
     headers: {
     'Content-Type': 'application/json',
@@ -31,7 +31,6 @@ function Register() {
     body: JSON.stringify(infos)
     })
     const result = await response.json();
-    console.log(result)
     if (result.message == "This user already exists"){
       setError("This user already exists");
       return
@@ -44,7 +43,6 @@ function Register() {
 
   const onSubmit: SubmitHandler<FormValues> = () =>{
     const  infos = getValues()
-    console.log(infos)
     handleClick(infos);
 
   }

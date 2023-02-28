@@ -32,46 +32,47 @@
         position: absolute;
         top: 50%;
         left: 88%;
+
         .button-login{
-            // position: absolute;
-            // top: 55%;
-            // left: 95%;
-            background-color: transparent;
-            padding: 8px;
-            font-family: 'Short Stack';
-            font-size: 26px;
-            border: none;
+          // position: absolute;
+          // top: 55%;
+          // left: 95%;
+          background-color: transparent;
+          padding: 8px;
+          font-family: 'Short Stack';
+          font-size: 26px;
+          border: none;
 
-            &:hover {
-                color:  rgb(237, 169, 67);
-                // color: rgb(2, 95, 10);
+          &:hover {
+              color:  rgb(237, 169, 67);
+              // color: rgb(2, 95, 10);
 
-                border: none;
-            }
-            &:focus{
-                outline:none;
-                border: none;
-            }
+              border: none;
+          }
+          &:focus{
+              outline:none;
+              border: none;
+          }
         }
         .button-register{
-            // position: absolute;
-            // top: 55%;
-            // left: 89%;
-            background-color: transparent;
-            padding: 8px;
-            font-family: 'Short Stack';
-            font-size: 26px;
-            border: none;
+          // position: absolute;
+          // top: 55%;
+          // left: 89%;
+          background-color: transparent;
+          padding: 8px;
+          font-family: 'Short Stack';
+          font-size: 26px;
+          border: none;
 
-            &:hover {
-                // color: rgb(2, 95, 10);
-                color: rgb(237, 169, 67);
-                border: none;
-            }
-            &:focus{
-                outline:none;
-                border: none;
-            }
+          &:hover {
+              // color: rgb(2, 95, 10);
+              color: rgb(237, 169, 67);
+              border: none;
+          }
+          &:focus{
+              outline:none;
+              border: none;
+          }
         }
     }
 
@@ -101,6 +102,37 @@
         left: 16%;
     }
 
+
+}
+
+.test{
+  grid-area: bod;
+  // background-image: url(../img/monkeys.jpg);
+  background-color: rgb(188, 186, 186);
+  // background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+
+  .wrapper{
+    position: absolute;
+    top: 30%;
+    left: 8%;
+
+    p{
+        font-family: 'Short Stack';
+        font-size: 50px;
+        color: white;
+        border-radius: 10px;
+        // position: absolute;
+        // top: 39%;
+        // left: 16%;
+    }
+    h2{
+      font-family: 'Short Stack';
+      font-size: 50px;
+      color: white;
+    }
+  }
 
 }
 

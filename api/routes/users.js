@@ -1,10 +1,13 @@
 const express = require('express')
 let router = express.Router()
 const bcrypt = require('bcrypt')
-
+const checkAuth = require('../middlewares/checkAuth.js')
+const checkUser = require('../middlewares/checkUser.js')
 const User = require('../models/user.model')
 
-router.get('/', async (req, res)=> {
+
+
+router.get('/', checkAuth, async (req, res)=> {
     try{
         const users = await User.find()
         res.json(users)
@@ -31,7 +34,7 @@ router.post('/' , async (req, res)=> {
 
     try{
         const newuser = await user.save()
-        res.status(201).json(newuser)
+        res.status(201).json(newuser.firstName)
     } catch (err) {
         res.status(400).json({message: err.message})
     }
@@ -39,7 +42,7 @@ router.post('/' , async (req, res)=> {
 
 
 
-router.delete('/:id', getUser, async (req, res) => {
+router.delete('/:id', checkUser, async (req, res) => {
 try {
     await res.user.remove()
     return res.json({ message: 'User deleted'})
@@ -47,19 +50,5 @@ try {
     return res.status(500).json({ message: err.message })
 }
 })
-
-async function getUser(req, res, next){
-    let user
-    try {
-        user = await User.findById(req.params.id)
-        if (user == null)
-            return res.status(404).json({ message: 'Cannot find user'})
-    } catch (err) {
-        return res.status(500).json({ message: err.message })
-    }
-
-    res.user = user
-    next()
-}
 
 module.exports = router
