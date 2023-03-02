@@ -55,7 +55,6 @@ function Login() {
         </form>
       </div>
     </div>
-    {/* <div className="footer"></div> */}
   </div>
   )
 }

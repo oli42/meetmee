@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react'
+import { useState } from 'react'
 import { Form } from 'react-router-dom'
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useNavigate } from 'react-router-dom';
@@ -31,8 +31,8 @@ function Register() {
     body: JSON.stringify(infos)
     })
     const result = await response.json();
-    if (result.message == "This user already exists"){
-      setError("This user already exists");
+    if (result.message == "A user already uses this email"){
+      setError("A user already uses this email");
       return
     }
     else{
@@ -67,7 +67,6 @@ function Register() {
             getValues("cpassword") ?
                 <p> Password not matching yet</p>
              : null}
-          
           
           <button type="submit">Submit</button>
           <p>{error}</p>

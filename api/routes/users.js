@@ -22,6 +22,10 @@ router.get('/:id', (req, res)=> {
 
 router.post('/' , async (req, res)=> {
 
+    const exist = await User.findOne({ email: req.body.email})
+    if (exist){
+        return res.status(404).json({ message: 'A user already uses this email'})
+    }
     const salt = await bcrypt.genSalt();
     const hashedPassword = await bcrypt.hash(req.body.password, salt);
 

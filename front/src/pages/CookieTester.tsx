@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import NavBar from '../components/NavBar'
+import NavBarIn from '../components/NavBarIn';
 
 function CookieTester() {
   
@@ -8,11 +8,11 @@ function CookieTester() {
   async function handleTest() {
 
     let url: string = '/api/users';
-      const response = await fetch(url, { method: "GET",
-      headers: {
-      'Access-Control-Allow-Origin' : '*',
-      credentials: 'include'}
-    })
+    const response = await fetch(url, { method: "GET",
+    headers: {
+    'Access-Control-Allow-Origin' : '*',
+    credentials: 'include'}
+  })
     const res2 = await response.json();
     const result: any = Object.values(res2)
     setData(result)
@@ -20,7 +20,7 @@ function CookieTester() {
 
   return (
     <div className="container">
-        <NavBar />
+        <NavBarIn />
           <div className="test">
             <div className='wrapper'>
             <button onClick={()=> handleTest()}>CLICK AND PROOVE THAT THE COOKIE IS WORKING</button>

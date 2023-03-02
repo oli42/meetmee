@@ -22,7 +22,7 @@ router.post('/' , async (req, res)=> {
             user.email = undefined;
             user.password = undefined;
     
-            res.cookie("meetmee", accesToken, {
+            res.cookie('meetmee', accesToken, {
                 secure: false,
                 httpOnly: true,
                 expires: dayjs().add(1, "days").toDate(),
