@@ -124,6 +124,8 @@
   // background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
+  font-family: 'Short Stack';
+
 
   .wrapper{
     position: absolute;
@@ -131,16 +133,10 @@
     left: 8%;
 
     p{
-        font-family: 'Short Stack';
-        font-size: 50px;
-        color: white;
-        border-radius: 10px;
-        // position: absolute;
-        // top: 39%;
-        // left: 16%;
+      font-size: 50px;
+      color: white;
     }
     h2{
-      font-family: 'Short Stack';
       font-size: 50px;
       color: white;
     }

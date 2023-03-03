@@ -21,6 +21,7 @@ router.post('/' , async (req, res)=> {
             const accesToken = jwt.sign(user.firstName, process.env.JWT_SECRET)
             user.email = undefined;
             user.password = undefined;
+            user.lastName = undefined;
     
             res.cookie('meetmee', accesToken, {
                 secure: false,

@@ -12,6 +12,7 @@ function Logout() {
         'Access-Control-Allow-Origin' : '*',
         credentials: 'include'}
         })
+        localStorage.clear()
         navigation('/');
     }
   return (

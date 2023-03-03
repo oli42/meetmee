@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useNavigate } from 'react-router-dom';
-import NavBar from './NavBar';
+import NavBar from '../components/NavBar';
 
 
 type FormValues = {
@@ -26,6 +26,8 @@ function Login() {
 
   })
   const result = await response.json();
+  localStorage.setItem('data', JSON.stringify(result.data._id));
+
   
   if (result.message == "A problem occurred. "){
     setError("wrong identification");

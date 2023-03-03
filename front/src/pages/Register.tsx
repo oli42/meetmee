@@ -1,8 +1,7 @@
 import { useState } from 'react'
-import { Form } from 'react-router-dom'
 import { useForm, SubmitHandler } from "react-hook-form";
 import { useNavigate } from 'react-router-dom';
-import NavBar from './NavBar';
+import NavBar from '../components/NavBar';
 
 
 type FormValues = {
@@ -18,7 +17,7 @@ function Register() {
   const { register, watch, handleSubmit, getValues,  formState: { errors } } = useForm<FormValues>();
   let navigation = useNavigate();
   const [error, setError] = useState("");
-  const confirm = watch('password')
+  // const confirm = watch('password')
 
   async function handleClick(infos: FormValues){
 

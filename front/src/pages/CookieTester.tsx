@@ -1,9 +1,16 @@
 import { useState } from 'react'
 import NavBarIn from '../components/NavBarIn';
 
+interface User {
+  firstName: string;
+  lastName: string;
+  email: string;
+};
+
 function CookieTester() {
   
-  const [data, setData] = useState<any>([])
+  const [data, setData] = useState<User[]>([])
+  const userId = localStorage.getItem('data');
 
   async function handleTest() {
 
@@ -13,8 +20,8 @@ function CookieTester() {
     'Access-Control-Allow-Origin' : '*',
     credentials: 'include'}
   })
-    const res2 = await response.json();
-    const result: any = Object.values(res2)
+    const res = await response.json();
+    const result: any = Object.values(res)
     setData(result)
   }
 
@@ -22,16 +29,15 @@ function CookieTester() {
     <div className="container">
         <NavBarIn />
           <div className="test">
-            <div className='wrapper'>
-            <button onClick={()=> handleTest()}>CLICK AND PROOVE THAT THE COOKIE IS WORKING</button>
-            <p>If the cookie is working, the list of users will appear down below</p>
+            {/* <div className='wrapper'> */}
+            <button onClick={()=> handleTest()}>Thx to the cookie, click and get the list of users</button>
               <div>
                 {
                 data?.map((item: any, index: any) => (
-                  <h2 key = {index}>{item.firstName}</h2> 
+                  <h2 key = {index}>{item.firstName} - {item.lastName} - {item.email} </h2> 
                   ))
                 }
-                </div>
+                {/* </div> */}
               </div>
           </div>
         <div className="footer"></div>

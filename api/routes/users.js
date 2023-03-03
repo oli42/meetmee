@@ -17,7 +17,8 @@ router.get('/', checkAuth, async (req, res)=> {
 })
 
 router.get('/:id', (req, res)=> {
-    res.send(`hello ${req.params.id}` )
+    res.status(201).json(`${req.params.id}`)
+
 })
 
 router.post('/' , async (req, res)=> {
